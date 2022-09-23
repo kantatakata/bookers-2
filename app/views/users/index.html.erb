@@ -2,7 +2,7 @@
     <%= image_tag current_user.get_profile_image(100,100) %>
   <p>name：<%= @user.name %></p>
   <p>introduction：<%= @user.introduction %></p>
-   <p><%= link_to edit_user_path(@user.id) %></p>
+   <p><%= link_to "edit", edit_user_path(@user.id) %></p>
 
 <h1>New book</h1>
 <% if @book.errors.any? %>
@@ -25,11 +25,18 @@
 
 
 
-<h1>投稿一覧</h1>
 
-<%= @lists.each do |list| %>
 
-  <p>タイトル</p>
-  <span><%= list.title %></span>
-  
+<h1>Users</h1>
+
+<% @users.each do |user| %>
+
+ <div>
+     <%= image_tag user.get_profile_image(100,100) %>
+
+  <p>name</p>
+  <span><%= user.name %></span>
+
+  <span><%= link_to "show", user_path(user.id) %></span>
+</div>
 <% end %>
