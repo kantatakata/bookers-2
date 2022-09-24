@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Bookers2</title>
-  
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -47,14 +47,15 @@
         <%= link_to "About", about_path, class: 'nav-link text-light' %>
       </li>
     <% end %>
-    
+
     </ul
     </div>
     </div>
    </nav>
   </header>
- </body> 
+ </body>
  <main></main>
+ <%= yield %>
  <footer>
   <div class="container mt-5">
   	<div class="row">
