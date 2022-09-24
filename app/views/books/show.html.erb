@@ -44,5 +44,6 @@
 </p>
 
  <%= link_to "Edit", edit_book_path(@book.id) %>
- <%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に消しても大丈夫ですか？" %>
+ <% if @book.user == current_user %>
+ <%= link_to "Destroy", book_path(@book), method: :delete, "data-confirm" => "本当に消しても大丈夫ですか？" %>
 
