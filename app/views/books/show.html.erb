@@ -1,6 +1,9 @@
 <%= notice %>
-
- <h1>User info</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <h2>User info</h2>
+</div>
     <%= image_tag current_user.get_profile_image(100,100) %>
   <p>name：<%= @user.name %></p>
   <p>introduction：<%= @user.introduction %></p>
