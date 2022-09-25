@@ -5,8 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_one_attached :image
 
-  validates :name, presence: true
-
+  validates :name, uniqueness: true, length: {minimum: 2,maximum: 20}
+  validates :introduction, length: {maximum: 200}
   has_many :books, dependent: :destroy
   has_one_attached :profile_image
  def get_profile_image(width, height)

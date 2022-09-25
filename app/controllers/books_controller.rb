@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-
+ before_action :current_user,only: [:edit, :update]
    def index
     @book = Book.new
     @books = Book.all
@@ -19,18 +19,13 @@ class BooksController < ApplicationController
   
    def show
     @book = Book.find(params[:id])
-    @user = current_user
+    @user = @book.user
     @books = Book.new
-　 end
+   end
   
-  
+ 
    def edit
     @book = Book.find(params[:id])
-     if @book.user == current_user
-            render "edit"
-     else
-       redirect_to user_path(currect_user)
-     end
   
    end
   
@@ -57,5 +52,12 @@ class BooksController < ApplicationController
     params.require(:book).permit(:title, :body)
   end
   
- 
+ def currect_user
+  @book = Book.find(params[:id])
+  if @book.user == current_user
+            render "edit"
+  else
+       redirect_to books_path
+  end
+ end
 end
